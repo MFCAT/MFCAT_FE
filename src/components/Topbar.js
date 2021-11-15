@@ -45,11 +45,13 @@ const Topbar = () => {
 
     window.ethereum.on('accountsChanged', accountChangedHandler);
 
-const chainChangedHandler = () =>{
+/* const chainChangedHandler = () =>{
     window.location.reload();
 }
 
-window.ethereum.on('chainChanged', chainChangedHandler);
+window.ethereum.on('chainChanged', chainChangedHandler); */
+
+
     return (
         <Navbar className="color-nav" expand="lg" variant="dark">
             <Container >
