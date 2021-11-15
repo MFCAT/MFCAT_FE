@@ -43,13 +43,13 @@ const Topbar = () => {
 
     }
 
-    window.ethereum.on('accountsChanged', accountChangedHandler);
+/*     window.ethereum.on('accountsChanged', accountChangedHandler);
 
-/* const chainChangedHandler = () =>{
-    window.location.reload();
-}
+    const chainChangedHandler = () => {
+        window.location.reload();
+    }
 
-window.ethereum.on('chainChanged', chainChangedHandler); */
+    window.ethereum.on('chainChanged', chainChangedHandler); */
 
 
     return (
@@ -73,7 +73,7 @@ window.ethereum.on('chainChanged', chainChangedHandler); */
                     </Nav>
                     <Nav>
                         <Button onClick={connectWalletHandler} variant="outline-success">
-                            <FaWallet className="react-icons" />  {!defaultAccount ? ' CONNECT YOUR WALLET' :  String(defaultAccount).substring(0,6) + "..." +String(defaultAccount).substring(36)}      
+                            <FaWallet className="react-icons" />  {!defaultAccount ? ' CONNECT YOUR WALLET' : String(defaultAccount).substring(0, 6) + "..." + String(defaultAccount).substring(36)}
                         </Button>
                     </Nav>
                 </Navbar.Collapse>
