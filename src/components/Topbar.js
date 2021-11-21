@@ -43,13 +43,13 @@ const Topbar = () => {
 
     }
 
-/*     window.ethereum.on('accountsChanged', accountChangedHandler);
-
-    const chainChangedHandler = () => {
-        window.location.reload();
-    }
-
-    window.ethereum.on('chainChanged', chainChangedHandler); */
+    /*     window.ethereum.on('accountsChanged', accountChangedHandler);
+    
+        const chainChangedHandler = () => {
+            window.location.reload();
+        }
+    
+        window.ethereum.on('chainChanged', chainChangedHandler); */
 
 
     return (
@@ -68,8 +68,9 @@ const Topbar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#gallery">GALLERY</Nav.Link>
-                        <Nav.Link href="#market">MARKETPLACE</Nav.Link>
+                        <Nav.Link href="#marketplace">MARKETPLACE</Nav.Link>
+                        <Nav.Link href="#create">CREATE</Nav.Link>
+                        <Nav.Link href="#account">MY ACCOUNT</Nav.Link>
                     </Nav>
                     <Nav>
                         <Button onClick={connectWalletHandler} variant="outline-success">

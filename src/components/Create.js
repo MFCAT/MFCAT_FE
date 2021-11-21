@@ -2,7 +2,7 @@ import { Container, Row, Col, Card, Form, Button } from "react-bootstrap"
 import { FaCat } from "react-icons/fa";
 
 
-const Home = () => {
+const Create = () => {
     return (
         <Container fluid>
         <Row >
@@ -53,4 +53,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Create

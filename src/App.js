@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Topbar from './components/Topbar'
-import Home from "./components/Home";
+import Create from "./components/Create";
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="bgimage">
       <Topbar />
-      <Home />
+      <Create />
   
     
       </div>
