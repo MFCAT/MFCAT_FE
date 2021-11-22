@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import "../App.css";
 import logo from "../images/logo.png";
+import { useMoralis } from "react-moralis";
 
 const Topbar = () => {
+  const { authenticate, isAuthenticated, user, logout } = useMoralis();
+
   return (
     <div>
       <Navbar className="color-nav" expand="lg" variant="dark">
@@ -32,7 +35,25 @@ const Topbar = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Button variant="outline-success">CONNECT WALLET</Button>
+              {!isAuthenticated ? (
+                <Button
+                  onClick={() =>
+                    authenticate({
+                      signingMessage: "MyFuckingCat Authentication",
+                    })
+                  }
+                  variant="outline-success"
+                >
+                  CONNECT WALLET
+                </Button>
+              ) : (
+                <Button onClick={() => logout()} variant="outline-success">
+                  {" "}
+                  {String(user.get("ethAddress")).substring(0, 6) +
+                    "..." +
+                    String(user.get("ethAddress")).substring(36)}
+                </Button>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
