@@ -6,8 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { MoralisProvider } from "react-moralis";
 
-const appId = "ku0kruSY345W3ABkDxoCJhkiR61yjLf1hvGf7xkt";
-const serverUrl = "https://edm4bcr7m83n.usemoralis.com:2053/server";
+const appId = "ABLHCAJlwSqdPwoxl5y7B4RqtHO1IhYKFxtYq0pe";
+const serverUrl = "https://cnbqsahhry4m.usemoralis.com:2053/server";
 
 ReactDOM.render(
   <React.StrictMode>

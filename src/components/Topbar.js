@@ -3,6 +3,7 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import "../App.css";
 import logo from "../images/logo.png";
 import { useMoralis } from "react-moralis";
+import TokenPrice from "./TokenPrice";
 
 const Topbar = () => {
   const { authenticate, isAuthenticated, user, logout } = useMoralis();
@@ -30,16 +31,31 @@ const Topbar = () => {
               <Nav.Link as={Link} to="/create">
                 CREATE
               </Nav.Link>
-              <Nav.Link as={Link} to="/account">
-                MY ACCOUNT
-              </Nav.Link>
+              {isAuthenticated ? (
+                <Nav.Link as={Link} to="/account">
+                  MY ACCOUNT
+                </Nav.Link>
+              ) : (
+                ""
+              )}
+            </Nav>
+            <Nav>
+              <Nav>
+                {" "}
+                <TokenPrice
+                  address="0x352Aeb6707508226b4A35264df9280562Fd132Dc"
+                  chain="BSC"
+                  image="https://myfuckingcat.xyz/wp-content/uploads/2021/11/logomfcat.png"
+                  size="20px"
+                />
+              </Nav>
             </Nav>
             <Nav>
               {!isAuthenticated ? (
                 <Button
                   onClick={() =>
                     authenticate({
-                      signingMessage: "MyFuckingCat Authentication",
+                      signingMessage: "MYFUCKINGCAT.xyz Authentication",
                     })
                   }
                   variant="outline-success"

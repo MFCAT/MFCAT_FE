@@ -1,20 +1,27 @@
-body, html {
+body,
+html {
   height: 100%;
-  }
+}
 
-  .bgimage {
+.bgimage {
   background-image: url("../src/images/background_home.png");
   min-height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  }
+}
 
-.color-nav{
+.color-nav {
   background-color: transparent;
 }
 
 .react-icons {
   vertical-align: baseline;
+}
 
+.card-img-top {
+  width: 100%;
+  min-height: 15vw;
+  max-height: 15vw;
+  object-fit: cover;
 }
