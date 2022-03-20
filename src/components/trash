@@ -1,0 +1,144 @@
+               <div className="col-xl-3 col-lg-4 col-md-6 mb-4 ">
+                    <div className="bg-white rounded shadow-sm card-color2">
+                      <img
+                        src={nft?.image || "error"}
+                        alt=""
+                        className="img-fluid card-img-top"
+                      />
+                      <div className="p-2 ">
+                        <h5>
+                          {" "}
+                          <span className="text-dark fw-bold">
+                            {nft?.metadata?.name}
+                          </span>
+                        </h5>
+                        <p className="text-wrap text-break small text-muted mb-0 text-lowercase">
+                          {nft?.metadata?.description}
+                        </p>
+                        <div className="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-1">
+                          <p className="small mb-0">
+                            <i className="fa fa-picture-o mr-2"></i>
+                            <span className="font-weight-bold">JPG</span>
+                          </p>
+                          <div className="badge bg-danger px-3 rounded-pill font-weight-normal">
+                            New
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <div className="container">
+                    <div className="card-columns ">
+                      <div className="card">
+                        {NFTBalances?.result &&
+                          NFTBalances.result.map((nft, index) => {
+                            //Verify Metadata
+                            nft = verifyMetadata(nft);
+                            console.log(nft);
+                            return (
+                              <div class="card">
+                                <a href="#">
+                                  <img
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  <div className="container">
+                                    <div className="col-4">
+                                      <div className="card-columns">
+                                        <div className="card">
+                                          <a href="#">
+                                            <img
+                                              className="card-img-top"
+                                              src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6cb0ceb620f241feb2f859e273634393&auto=format&fit=crop&w=500&q=80"
+                                              alt="Card image cap"
+                                            />
+                                            <div className="card-body">
+                                              <h5 className="card-title">Lorem ipsum dolor sit amet.</h5>
+                                              <p className="card-text">
+                                                Lorem ipsum dolor sit amet, explicabo facili
+                                              </p>
+                                              <p className="card-text">
+                                                <small className="text-muted">
+                                                  <i className="fas fa-eye"></i>1000
+                                                  <i className="far fa-user"></i>
+                                                  admin
+                                                  <i className="fas fa-calendar-alt"></i>Jan 20, 2018
+                                                </small>
+                                              </p>
+                                            </div>
+                                          </a>
+                                        </div>
+                                        <div className="card">
+                                          <a href="#">
+                                            <img
+                                              className="card-img-top"
+                                              src="https://images.unsplash.com/photo-1472076638602-b1f8b1ac0b4a?ixlib=rb-0.3.5&s=63c9de7246b535be56c8eaff9b87dd89&auto=format&fit=crop&w=500&q=80"
+                                              alt="Card image cap"
+                                            />
+                                            <div className="card-body">
+                                              <h5 className="card-title">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Consequatur, doloremque!
+                                              </h5>
+                                              <p className="card-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Distinctio iusto maxime nemo omnis praesentium similique.
+                                              </p>
+                                              <p className="card-text">
+                                                <small className="text-muted">
+                                                  <i className="fas fa-eye"></i>1000
+                                                  <i className="far fa-user"></i>
+                                                  admin
+                                                  <i className="fas fa-calendar-alt"></i>Jan 20, 2018
+                                                </small>
+                                              </p>
+                                            </div>
+                                          </a>
+                                        </div>
+                                        <div className="card">
+                                          <a href="#">
+                                            <img
+                                              className="card-img-top"
+                                              src="https://images.unsplash.com/photo-1535086181678-5a5c4d23aa7d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=34c86263bec2c8f74ceb74e9f4c5a5fc&auto=format&fit=crop&w=500&q=80"
+                                              alt="Card image cap"
+                                            />
+                                            <div className="card-body">
+                                              <h5 className="card-title">
+                                                Lorem ipsum dolor sit amet, consectetur.
+                                              </h5>
+                                              <p className="card-text">
+                                                Amet commodi deleniti enim laboriosam odio placeat praesentium
+                                                quis ratione rerum suscipit.
+                                              </p>
+                                              <p className="card-text">
+                                                <small className="text-muted">
+                                                  <i className="fas fa-eye"></i>1000
+                                                  <i className="far fa-user"></i>
+                                                  admin
+                                                  <i className="fas fa-calendar-alt"></i>Jan 20, 2018
+                                                </small>
+                                              </p>
+                                            </div>
+                                          </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>

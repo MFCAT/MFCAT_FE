@@ -1,19 +1,19 @@
 export const n6 = new Intl.NumberFormat("en-us", {
   style: "decimal",
   minimumFractionDigits: 0,
-  maximumFractionDigits: 13,
+  maximumFractionDigits: 6,
 });
 export const n4 = new Intl.NumberFormat("en-us", {
   style: "decimal",
   minimumFractionDigits: 0,
-  maximumFractionDigits: 13,
+  maximumFractionDigits: 4,
 });
 
 export const c2 = new Intl.NumberFormat("en-us", {
   style: "currency",
   currency: "USD",
   minimumFractionDigits: 2,
-  maximumFractionDigits: 13,
+  maximumFractionDigits: 2,
 });
 
 /**
@@ -24,7 +24,7 @@ export const c2 = new Intl.NumberFormat("en-us", {
  */
 export const getEllipsisTxt = (str, n = 6) => {
   if (str) {
-    return `${str.substr(0, n)}...${str.substr(str.length - n, str.length)}`;
+    return `${str.slice(0, n)}...${str.slice(str.length - n)}`;
   }
   return "";
 };

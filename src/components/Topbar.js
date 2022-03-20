@@ -4,6 +4,8 @@ import "../App.css";
 import logo from "../images/logo.png";
 import { useMoralis } from "react-moralis";
 import TokenPrice from "./TokenPrice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloudUpload } from "@fortawesome/free-solid-svg-icons";
 
 const Topbar = () => {
   const { authenticate, isAuthenticated, user, logout } = useMoralis();
@@ -12,7 +14,7 @@ const Topbar = () => {
     <div>
       <Navbar className="color-nav" expand="lg" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             <img
               alt=""
               src={logo}
@@ -20,20 +22,18 @@ const Topbar = () => {
               height="40"
               className="img-responsive"
             />{" "}
-            <span style={{ color: "red" }}> &#946;</span>
+            <span style={{ color: "#D82148" }}> &#946;eta</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/marketplace">
-                MARKETPLACE
+                | MARKETPLACE |
               </Nav.Link>
-              <Nav.Link as={Link} to="/create">
-                CREATE
-              </Nav.Link>
+
               {isAuthenticated ? (
                 <Nav.Link as={Link} to="/account">
-                  MY ACCOUNT
+                  | MY ACCOUNT |
                 </Nav.Link>
               ) : (
                 ""
@@ -49,6 +49,22 @@ const Topbar = () => {
                   size="20px"
                 />
               </Nav>
+            </Nav>
+            <Nav>
+              {isAuthenticated ? (
+                <Nav.Link as={Link} to="/create">
+                  <Button variant="cat">
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={faCloudUpload}
+                      color="white"
+                    ></FontAwesomeIcon>{" "}
+                    CREATE
+                  </Button>
+                </Nav.Link>
+              ) : (
+                ""
+              )}
             </Nav>
             <Nav>
               {!isAuthenticated ? (

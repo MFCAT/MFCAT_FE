@@ -1,361 +1,372 @@
-import React from "react";
+import { Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { useMoralisWeb3Api, useMoralis } from "react-moralis";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faCircleDollarToSlot } from "@fortawesome/free-solid-svg-icons";
 
 const MarketPlace = () => {
+  // const apiKey = "ABLHCAJlwSqdPwoxl5y7B4RqtHO1IhYKFxtYq0pe";
+  //const serverUrl = "https://cnbqsahhry4m.usemoralis.com:2053/server";
+  const Web3Api = useMoralisWeb3Api();
+
+  const [Nfts, getNfts] = useState();
+
+  const fetchAllNFTS = async () => {
+    const options = {
+      address: "0xa4A23A155a8B8B87eF66c5b620B5253899c0A31e",
+      chain: "bsc testnet",
+    };
+    const nftOwners = await Web3Api.token.getNFTOwners(options);
+    console.log(nftOwners);
+  };
+
   return (
     <div className="container ">
-      <div class="px-lg-5">
-        <div class="row pt-5">
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+      <div className="px-lg-5">
+        <div className="row pt-5">
+          {/*    <Button className="mt-5" onClick={fetchAllNFTS}>
+            Start Mint
+          </Button> */}
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://www.scarymommy.com/wp-content/uploads/2019/09/GettyImages-146582583-min-1.jpg"
+                src="https://i.guim.co.uk/img/media/c5e73ed8e8325d7e79babf8f1ebbd9adc0d95409/2_5_1754_1053/master/1754.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=065f279099ded1062688e357b155dc29"
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
-                <h5>
-                  {" "}
-                  <a class="text-dark">Red paint cup</a>
-                </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPG</span>
-                  </p>
-                  <div className="badge bg-danger px-3 rounded-pill font-weight-normal">
-                    New
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
-              <img
-                src="https://thumbor.granitemedia.com/cat/2cB2FlwRfnA0J7nJ1kbsGuZ2VCY=/800x0/filters:quality(80)/granite-web-prod/f8/f8/f8f8797a2ce84ddbbf50da42b0110a4e.jpeg"
-                alt=""
-                class="img-fluid card-img-top"
-              />
-              <div class="p-4">
-                <h5>
-                  {" "}
-                  <a href="#" class="text-dark">
-                    Blorange
-                  </a>
-                </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">PNG</span>
-                  </p>
-                  <div className="badge bg-danger px-3 rounded-pill font-weight-normal">
-                    Trend
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP7xKLxBBY4c6r8kxQzpp6OW39VFRLJ9Qd0w&usqp=CAU"
-                alt=""
-                class="img-fluid card-img-top"
-              />
-              <div class="p-4">
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    And She Realized
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">
-                    Featured
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://d.newsweek.com/en/full/1920025/cat-its-mouth-open.jpg"
+                src="https://www.webbox.co.uk/wp-content/uploads/2020/10/angry_cat_2-scaled.jpg"
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
+
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    DOSE Juice
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPEG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-success px-3 rounded-pill font-weight-normal">
-                    Hot
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F06%2F27%2Ftabby-cat-sitting-funny-136267253-2-2000.jpg"
+                src="https://i0.wp.com/katzenworld.co.uk/wp-content/uploads/2014/07/cat81.jpg?w=607&h=607&crop=1&ssl=1"
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
+
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    Pineapple
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">PNG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-primary px-3 rounded-pill font-weight-normal">
-                    New
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://images.ctfassets.net/f60q1anpxzid/asset-fd2fc6bbc5b9c2f402ae36a59e7ee5d9/c2c60016f18b9f1482a02452171dc276/cat-videos-that-are-funny-hp.jpg?fm=jpg&fl=progressive&q=50&w=1200"
+                src="https://media.gettyimages.com/photos/cat-sandwich-picture-id146582583?s=612x612"
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
+
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    Yellow banana
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">
-                    Featured
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://www.womansworld.com/wp-content/uploads/2019/07/funny-cat-faces-1.jpg"
+                src="https://media.istockphoto.com/photos/cat-on-glass-bottom-view-picture-id1171983473?k=20&m=1171983473&s=612x612&w=0&h=BQV-f1L5VNVIhLF2iPq-iOxnIuCNX8QynuchBdDY0qQ="
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
+
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    Teal Gameboy
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPEG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-info px-3 rounded-pill font-weight-normal">
-                    Hot
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://media.kidadl.com/5fca609558f6ce3b7edd362e_cats_jokes_can_bring_you_oodles_of_laughter_e349432cab.jpeg"
+                src="https://www.rover.com/blog/wp-content/uploads/2019/12/Funny-cat-sitting-up.jpg"
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
+
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    Color in Guatemala.
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">PNG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">
-                    Featured
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://wallpaperforu.com/wp-content/uploads/2021/03/Wallpaper-Bow-Cute-Cat-Funny-Animals-5000x2806px-4k-F46-scaled.jpg"
+                src="https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1202731508.jpg"
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
+
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    Red paint cup
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-danger px-3 rounded-pill font-weight-normal">
-                    New
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
+          <div className="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div className="bg-white rounded shadow-sm card-color2">
               <img
-                src="https://toppng.com/uploads/preview/black-cat-face-funny-tongue-wallpaper-11555175847yd0t8yn7cs.jpg"
+                src="https://www.womansworld.com/wp-content/uploads/2019/07/funny-cat-tongue.jpg?w=750"
                 alt=""
-                class="img-fluid card-img-top"
+                className="card-img-top img-fluid "
               />
-              <div class="p-4">
+
+              <div className="p-2">
                 <h5>
                   {" "}
-                  <a href="#" class="text-dark">
-                    Lorem ipsum dolor
-                  </a>
+                  <span className="fw-bold">Name</span>
                 </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                <p className="small text-muted mb-0 lh-1  text-truncate">
+                  Description is trucated for better view and the cards doesn't
+                  resize
                 </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">PNG</span>
+                <div className="d-flex align-items-center justify-content-between px-1 py-2 mt-1">
+                  <p className="small mb-0">
+                    <span>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faCircleDollarToSlot}
+                        size="xl"
+                        color="#151D3B"
+                      ></FontAwesomeIcon>{" "}
+                    </span>
+                    <span className="font-weight-bold text-muted">
+                      0.25 BNB
+                    </span>
                   </p>
-                  <div class="badge badge-primary px-3 rounded-pill font-weight-normal">
-                    Trend
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
-              <img
-                src="http://4.bp.blogspot.com/-4jT-MtHUyzo/UR8j_ELPRWI/AAAAAAAAEU8/RQrXtqyas1o/s1600/Big+size+cat+funny+cats+photos+(6).jpg"
-                alt=""
-                class="img-fluid card-img-top"
-              />
-              <div class="p-4">
-                <h5>
-                  {" "}
-                  <a href="#" class="text-dark">
-                    Lorem ipsum dolor
-                  </a>
-                </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPG</span>
-                  </p>
-                  <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">
-                    Featured
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-            <div class="bg-white rounded shadow-sm">
-              <img
-                src="https://i.pinimg.com/originals/3d/3d/bc/3d3dbcf8a4f9dbee8fc608c8d62dbb8c.jpg"
-                alt=""
-                class="img-fluid card-img-top"
-              />
-              <div class="p-4">
-                <h5>
-                  {" "}
-                  <a href="#" class="text-dark">
-                    Lorem ipsum dolor
-                  </a>
-                </h5>
-                <p class="small text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                </p>
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                  <p class="small mb-0">
-                    <i class="fa fa-picture-o mr-2"></i>
-                    <span class="font-weight-bold">JPEG</span>
-                  </p>
-                  <div class="badge badge-success px-3 rounded-pill font-weight-normal">
-                    Hot
+                  <div>
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      color="#D82148"
+                      size="xl"
+                    ></FontAwesomeIcon>{" "}
+                    <span>4</span>
                   </div>
                 </div>
               </div>
